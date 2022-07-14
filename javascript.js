@@ -28,7 +28,7 @@ function nextSlide() {
 	addActive();
 	slidesWrapper.style.transform = `translateX(-${offset}px)`;
 	addActive();
-	clearInterval(timerId);
+	
 }
 
 function prevSlide() {
@@ -39,7 +39,7 @@ function prevSlide() {
 	}
 	slidesWrapper.style.transform = `translateX(-${offset}px)`;
 	addActive();
-	clearInterval(timerId);
+	
 }
 
 next.addEventListener("click", nextSlide);
@@ -78,7 +78,7 @@ slidesWrapper.addEventListener(
 	function (e) {
 		let deltaX;
 		deltaX = e.changedTouches[0].clientX - clientX;
-		clearInterval(timerId);
+		
 		if (deltaX > 0) {
 			prevSlide();
 		} else {
