@@ -1,8 +1,11 @@
 .main {
+	overflow: hidden;
 	&__swiper-wrapper {
 		display: grid;
-		column-gap: 50px;
+		column-gap: 45px;
 		grid-template-columns: repeat(auto-fit, 260px);
+		transition: ease-in 0.5s all;
+		margin: 0 -20px;
 	}
 	&__swiper-slide {
 		border: 1px solid #c8d9fb;

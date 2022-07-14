@@ -203,13 +203,21 @@ body {
   background-color: #527ccd;
 }
 
+.main {
+  overflow: hidden;
+}
+
 .main__swiper-wrapper {
   display: -ms-grid;
   display: grid;
-  -webkit-column-gap: 50px;
-          column-gap: 50px;
+  -webkit-column-gap: 45px;
+          column-gap: 45px;
   -ms-grid-columns: (260px)[auto-fit];
       grid-template-columns: repeat(auto-fit, 260px);
+  -webkit-transition: ease-in 0.5s all;
+  -o-transition: ease-in 0.5s all;
+  transition: ease-in 0.5s all;
+  margin: 0 -20px;
 }
 
 .main__swiper-slide {
