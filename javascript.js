@@ -72,7 +72,7 @@ slidesWrapper.addEventListener(
 	},
 	false
 );
-
+clearInterval(timerId);
 slidesWrapper.addEventListener(
 	"touchend",
 	function (e) {

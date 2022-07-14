@@ -8,6 +8,14 @@
 	h1 {
 		text-align: center;
 	}
+	.main__swiper {
+		margin: 0 0 0 21px;
+	}
+	.header__swiper-scrollbar {
+		.line {
+			height: 3px;
+		}
+	}
 }
 
 @media (max-width: 1000px) {
@@ -16,6 +24,11 @@
 	}
 	h1 {
 		text-align: center;
+	}
+	.header__swiper-scrollbar {
+		.line {
+			height: 20px;
+		}
 	}
 }
 
@@ -38,7 +51,7 @@
 			width: 199%;
 			margin: 20px 0;
 			.line {
-				height: 10px;
+				height: 30px;
 			}
 		}
 	}

@@ -1,9 +1,12 @@
 .main {
 	overflow: hidden;
+   &__swiper{
+          margin: 0 0 0 20px;
+   }
 	&__swiper-wrapper {
-      cursor: pointer;
+		cursor: pointer;
 		display: grid;
-		column-gap: 45px;
+		gap: 40px;
 		grid-template-columns: repeat(auto-fit, 260px);
 		transition: ease-in 0.5s all;
 		margin: 0 -20px;

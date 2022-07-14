@@ -207,12 +207,15 @@ body {
   overflow: hidden;
 }
 
+.main__swiper {
+  margin: 0 0 0 20px;
+}
+
 .main__swiper-wrapper {
   cursor: pointer;
   display: -ms-grid;
   display: grid;
-  -webkit-column-gap: 45px;
-          column-gap: 45px;
+  gap: 40px;
   -ms-grid-columns: (260px)[auto-fit];
       grid-template-columns: repeat(auto-fit, 260px);
   -webkit-transition: ease-in 0.5s all;
@@ -275,6 +278,12 @@ body {
   h1 {
     text-align: center;
   }
+  .main__swiper {
+    margin: 0 0 0 21px;
+  }
+  .header__swiper-scrollbar .line {
+    height: 3px;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -283,6 +292,9 @@ body {
   }
   h1 {
     text-align: center;
+  }
+  .header__swiper-scrollbar .line {
+    height: 20px;
   }
 }
 
@@ -315,6 +327,6 @@ body {
     margin: 20px 0;
   }
   .header__swiper-scrollbar .line {
-    height: 10px;
+    height: 30px;
   }
 }
