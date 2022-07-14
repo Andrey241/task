@@ -1,0 +1,42 @@
+.main {
+	&__swiper-wrapper {
+		display: grid;
+		column-gap: 50px;
+		grid-template-columns: repeat(auto-fit, 260px);
+	}
+	&__swiper-slide {
+		border: 1px solid #c8d9fb;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	&__swiper-item {
+		& img {
+			padding: 20px;
+			padding-bottom: 0;
+		}
+	}
+
+	&__swiper-list {
+		padding: 20px;
+		padding-top: 10px;
+		.text-data {
+			opacity: 0.6;
+			font-size: 12px;
+			padding: 0 0 7px 0;
+		}
+
+		.text-title {
+			font-size: 16px;
+			line-height: 25px;
+		}
+	}
+	.text-description {
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 22px;
+		padding: 20px;
+		padding-top: 0;
+	}
+}

@@ -1,0 +1,64 @@
+.header {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	margin-bottom: 40px;
+	&__title h1 {
+		font-size: 50px;
+		font-weight: 700;
+	}
+
+	&__swiper-scrollbar {
+		display: flex;
+	}
+
+	&__swiper-items {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__swipper-buttons {
+		display: flex;
+	}
+	.btn {
+		width: 60px;
+		height: 60px;
+		border: 1px solid #c8d9fb;
+		transform: matrix(-1, 0, 0, 1, 0, 0);
+		position: relative;
+		transition: ease-in 0.3s all;
+		cursor: pointer;
+
+		&:hover {
+			background: #c8d9fb;
+		}
+		&::before {
+			position: absolute;
+			line-height: 7;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 10px;
+			height: 20px;
+		}
+	}
+	&__swiper-prev {
+		&::before {
+			content: url(../img/prev.svg);
+		}
+	}
+	&__swiper-next {
+		margin-left: 40px;
+		&::before {
+			content: url(../img/next.svg);
+		}
+	}
+	.line {
+		height: 2px;
+		background-color: $light-blue;
+		cursor: pointer;
+	}
+	.active {
+		background-color: $blue;
+	}
+}
