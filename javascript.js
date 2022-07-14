@@ -12,24 +12,26 @@ for (let i = 0; i < slides.length; i++) {
 slidesWrapper.style.width = `${160 * slides.length}%`;
 
 let line = document.querySelectorAll(".line");
-
 let index = 1;
 let offset = 0;
+
 addActive();
-next.addEventListener("click", () => {
+
+function nextSlide() {
 	if (offset == 300 * (slides.length - 1)) {
 		offset = 0;
 	} else {
 		offset += 300;
 	}
 	slidesWrapper.style.transform = `translateX(-${offset}px)`;
-	document
-		.querySelectorAll(".line")
-		.forEach((item) => item.classList.remove("active"));
-	addActive();
-});
 
-prev.addEventListener("click", () => {
+	addActive();
+	slidesWrapper.style.transform = `translateX(-${offset}px)`;
+	addActive();
+	clearInterval(timerId);
+}
+
+function prevSlide() {
 	if (offset == 0) {
 		offset = 300 * (slides.length - 1);
 	} else {
@@ -37,7 +39,12 @@ prev.addEventListener("click", () => {
 	}
 	slidesWrapper.style.transform = `translateX(-${offset}px)`;
 	addActive();
-});
+	clearInterval(timerId);
+}
+
+next.addEventListener("click", nextSlide);
+
+prev.addEventListener("click", prevSlide);
 
 line.forEach((item, index) => {
 	item.addEventListener("click", (e) => {
@@ -53,31 +60,57 @@ function addActive() {
 }
 
 let timerId = setInterval(() => {
-	if (offset == 300 * (slides.length - 1)) {
-		offset = 0;
-	} else {
-		offset += 300;
-	}
-	slidesWrapper.style.transform = `translateX(-${offset}px)`;
-	document
-		.querySelectorAll(".line")
-		.forEach((item) => item.classList.remove("active"));
-	addActive();
+	nextSlide();
 }, 4000);
-var X = document.getElementById("X");
-var Y = document.getElementById("Y");
 
-// window.addEventListener("touchstart", (e) => pos(e));
+//touchChangeSlide
+let clientX;
+slidesWrapper.addEventListener(
+	"touchstart",
+	function (e) {
+		clientX = e.touches[0].clientX;
+	},
+	false
+);
 
-let divRect = slidesWrapper.getBoundingClientRect();
+slidesWrapper.addEventListener(
+	"touchend",
+	function (e) {
+		let deltaX;
+		deltaX = e.changedTouches[0].clientX - clientX;
+		clearInterval(timerId);
+		if (deltaX > 0) {
+			prevSlide();
+		} else {
+			nextSlide();
+		}
+	},
+	false
+);
 
-console.log(JSON.stringify(divRect));
+//clickChangeSlide
 
-slidesWrapper.addEventListener("touchstart", function (e) {
-	let relX = e.pageX - divRect.left;
-	let relY = e.pageY - divRect.top;
+let mouseDownCoordinate = 0;
+let mouseUpCoordinate = 0;
 
-	console.log(e.pageX);
-	console.log(`relX: ${relX}, absX: ${e.pageX}`);
-	console.log(`relY: ${relY}, absY: ${e.pageY}`);
-});
+slidesWrapper.addEventListener(
+	"mousedown",
+	(e) => {
+		mouseDownCoordinate = e.clientX;
+	},
+	true
+);
+
+slidesWrapper.addEventListener(
+	"mouseup",
+	(e) => {
+		mouseUpCoordinate = e.clientX;
+
+		if (mouseDownCoordinate > mouseUpCoordinate) {
+			nextSlide();
+		} else {
+			prevSlide();
+		}
+	},
+	true
+);

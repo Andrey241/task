@@ -1,6 +1,7 @@
 .main {
 	overflow: hidden;
 	&__swiper-wrapper {
+      cursor: pointer;
 		display: grid;
 		column-gap: 45px;
 		grid-template-columns: repeat(auto-fit, 260px);
